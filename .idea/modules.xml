@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bank-application-1/ai/bank-application-ai.iml" filepath="$PROJECT_DIR$/bank-application-1/ai/bank-application-ai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bank-application-1/manual/bank-application-manual.iml" filepath="$PROJECT_DIR$/bank-application-1/manual/bank-application-manual.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/upb-advanced-java.iml" filepath="$PROJECT_DIR$/.idea/upb-advanced-java.iml" />
+    </modules>
+  </component>
+</project>
