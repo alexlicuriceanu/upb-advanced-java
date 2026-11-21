@@ -14,6 +14,8 @@ import com.luxoft.bankapp.exceptions.NotEnoughFundsException;
 import com.luxoft.bankapp.exceptions.OverdraftLimitExceededException;
 import com.luxoft.bankapp.service.BankService;
 
+import java.util.Iterator;
+
 public class Test1 {
 	
 	@Test
@@ -62,10 +64,16 @@ public class Test1 {
 		BankService.addClient(bank, client2);
 		
 		assertEquals(2, bank.getClients().size());
-		assertEquals("Mr. Smith John", bank.getClients().get(0).getClientGreeting());
-		assertEquals("Mr. Smith John", bank.getClients().get(0).toString());
-		assertEquals("Ms. Smith Michelle", bank.getClients().get(1).getClientGreeting());
-		assertEquals("Ms. Smith Michelle", bank.getClients().get(1).toString());
+
+		//
+		Iterator<Client> it = bank.getClients().iterator();
+		Client _client1 = it.next();
+		Client _client2 = it.next();
+
+		assertEquals("Mr. Smith John", _client1.getClientGreeting());
+		assertEquals("Mr. Smith John", _client1.toString());
+		assertEquals("Ms. Smith Michelle", _client2.getClientGreeting());
+		assertEquals("Ms. Smith Michelle", _client2.toString());
 	}
 
 }
