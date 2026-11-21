@@ -39,7 +39,7 @@ public class BankReportStreams {
                 .thenComparingInt(Account::getId);
 
         return bank.getClients().stream()
-                .flatMap(c -> c.getAccounts().stream())
+                .flatMap(client -> client.getAccounts().stream())
                 .collect(Collectors.toCollection(() -> new TreeSet<>(comparator)));
     }
 
@@ -47,7 +47,7 @@ public class BankReportStreams {
         return bank.getClients().stream()
                 .flatMap(client -> client.getAccounts().stream())
                 .filter(account -> account instanceof CheckingAccount && account.getBalance() < 0.0)
-                .mapToDouble(a -> Math.abs(a.getBalance()))
+                .mapToDouble(account -> Math.abs(account.getBalance()))
                 .sum();
     }
 
