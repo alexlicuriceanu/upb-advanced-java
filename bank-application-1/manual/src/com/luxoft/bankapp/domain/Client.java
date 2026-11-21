@@ -1,17 +1,16 @@
 package com.luxoft.bankapp.domain;
 
-import java.sql.ClientInfoStatus;
 import java.util.*;
 
 public class Client {
 	
 	private String name;
 	private Gender gender;
-	//private List<Account> accounts = new ArrayList<Account>();
 	private Set<Account> accounts = new LinkedHashSet<>();
 	private String city;
 
 	public Client(String name, Gender gender) {
+		this(name, gender, "Unknown");
 		this.name = name;
 		this.gender = gender;
 	}
@@ -33,8 +32,16 @@ public class Client {
 	public Gender getGender() {
 		return gender;
 	}
-	
-	public Set<Account> getAccounts() {
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Set<Account> getAccounts() {
 		return Collections.unmodifiableSet(accounts);
 	}
 	
