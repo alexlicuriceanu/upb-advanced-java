@@ -53,7 +53,7 @@ public class BankReportStreams {
 
     public Map<Client, Collection<Account>> getCustomerAccounts(Bank bank) {
         return bank.getClients().stream()
-                .collect(Collectors.toMap(client -> client, client -> client.getAccounts()));
+                .collect(Collectors.toMap(client -> client, client -> new ArrayList<>(client.getAccounts())));
     }
 
     public Map<String, List<Client>> getClientsByCity(Bank bank) {
