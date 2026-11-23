@@ -43,4 +43,29 @@ public abstract class AbstractAccount implements Account {
 		return balance;
 	}
 
+	/**
+	 * Accounts are identified by their id: two accounts of the same type
+	 * with the same id are considered equal.
+	 */
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		return id == ((AbstractAccount) o).id;
+	}
+
+	@Override
+	public int hashCode() {
+		return Integer.hashCode(id);
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%s[id=%d, balance=%.2f]", getClass().getSimpleName(), id, balance);
+	}
+
 }

@@ -2,6 +2,9 @@ package com.luxoft.bankapp.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import com.luxoft.bankapp.domain.Bank;
@@ -62,10 +65,11 @@ public class Test1 {
 		BankService.addClient(bank, client2);
 		
 		assertEquals(2, bank.getClients().size());
-		assertEquals("Mr. Smith John", bank.getClients().get(0).getClientGreeting());
-		assertEquals("Mr. Smith John", bank.getClients().get(0).toString());
-		assertEquals("Ms. Smith Michelle", bank.getClients().get(1).getClientGreeting());
-		assertEquals("Ms. Smith Michelle", bank.getClients().get(1).toString());
+		List<Client> clients = new ArrayList<Client>(bank.getClients());
+		assertEquals("Mr. Smith John", clients.get(0).getClientGreeting());
+		assertEquals("Mr. Smith John", clients.get(0).toString());
+		assertEquals("Ms. Smith Michelle", clients.get(1).getClientGreeting());
+		assertEquals("Ms. Smith Michelle", clients.get(1).toString());
 	}
 
 }
